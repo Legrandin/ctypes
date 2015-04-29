@@ -300,6 +300,8 @@ CDataType_in_dll(PyObject *type, PyObject *args)
 /* dlerror() isn't very helpful on cygwin */
 			     "symbol '%s' not found (%s) ",
 			     name,
+#else
+                             "%s",
 #endif
 			     ctypes_dlerror());
 		return NULL;
@@ -2791,6 +2793,8 @@ CFuncPtr_FromDll(PyTypeObject *type, PyObject *args, PyObject *kwds)
 /* dlerror() isn't very helpful on cygwin */
 			     "function '%s' not found (%s) ",
 			     name,
+#else
+                             "%s",
 #endif
 			     ctypes_dlerror());
 		return NULL;
